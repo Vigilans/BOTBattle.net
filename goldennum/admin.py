@@ -16,7 +16,7 @@ class RoomAdmin(admin.ModelAdmin):
         roomid = request.POST['roomid']
         timer = request.POST['time']
 
-        cmd = f'python3 goldennum/RoomThread.py "{secretkey.secretKey}" {roomid} {timer}'
+        cmd = f'python goldennum/RoomThread.py "{secretkey.secretKey}" {roomid} {timer}'
         cmd_run = f'nohup {cmd} >> tmp/logs/{roomid}.out'
 
         if sys.platform == "win32":

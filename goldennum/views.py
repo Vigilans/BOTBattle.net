@@ -324,7 +324,7 @@ def startRoom(request):
     if key != secretkey.secretKey:
         return HttpResponse("Certification failed")
 
-    cmd = f'python3 goldennum/utils.py "{secretkey.secretKey}" {roomid} {timer}'
+    cmd = f'python goldennum/utils.py "{secretkey.secretKey}" {roomid} {timer}'
     cmd_run = f'nohup {cmd} >> tmp/logs/{roomid}.out'
 
     if sys.platform == "win32":
@@ -381,7 +381,7 @@ def stopRoom(request):
         return HttpResponse("No room match roomid")
 
     if sys.platform == "win32":
-        room_cmd = room.cmd[len("python3 "):]  # skip 'python3 ' prefix
+        room_cmd = room.cmd[len("python "):]  # skip 'python ' prefix
         cmd_kill = f'wmic process where "COMMANDLINE LIKE \'%{room_cmd}%\'" call terminate'
     else:
         cmd_kill = f'pkill -f "{room.cmd}"'
