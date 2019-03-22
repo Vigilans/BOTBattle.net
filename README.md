@@ -17,3 +17,6 @@ N 个玩家，每人写 **2** 个 **0~100** 之间的有理数 **（不包括 0 
 * [用户文档](docs/user.md)
 * [管理员文档](docs/admin.md)
 * [开发者文档](docs/developer.md)
+
+
+todo:房间管理
